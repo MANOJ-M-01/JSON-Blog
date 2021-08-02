@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Blog</title>
+    <style>
+        .slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+
+        }
+
+        .slider-container .slider-title {
+            height: 40px;
+        }
+
+        .slider-container a img {
+            height: 300px;
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider"></div>
+</body>
+<script type="module" src="./main.js"></script>
+</html>
