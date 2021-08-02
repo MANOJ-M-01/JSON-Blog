@@ -1,0 +1,16 @@
+.slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+}
+
+.slider-container .slider-title {
+    height: 40px;
+}
+
+.slider-container a img {
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+}
