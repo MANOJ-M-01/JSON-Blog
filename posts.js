@@ -1,23 +1,17 @@
-import BlogData, { greeting as greet } from "./posts.js";
-import Pagination from "./pagination.js";
-var currentPage = window.location.search.substr(1);
-var page = currentPage.split("=");
-var PageNo = parseInt(page[1]);
-var PageNo = PageNo ? PageNo : 1;
-const viewBlog = (blogdatas) => {
-  blogdatas.forEach((blogdata) => {
-    BlogData(blogdata);
-  });
-  greet();
+const BlogData = (blogdata) => {
+  var title = blogdata.title ? blogdata.title : "";
+  var description = blogdata.description ? blogdata.description : "";
+  var url = blogdata.url ? blogdata.url : "";
+  var blogurl = blogdata.blogurl ? blogdata.blogurl : "";
+  var author = blogdata.author ? blogdata.author : "";
+  var published = blogdata.date ? blogdata.date : "";
+  var Blogs = document.querySelector(".blog-container");
+  var BlogElement = document.createElement("div");
+  BlogElement.classList.add("post-container");
+  BlogElement.innerHTML = `<div class="post-title">${title}</div> <a href="${blogurl}"><img src="${url}" alt="${location}"></a> <div class="post-description">${description}</div> <div class="post-details"> <div>${author}</div><div class="post-date">${published}</div> </div> `;
+  Blogs.append(BlogElement);
 };
-axios.get("./blog.json")
-  .then((response) => {
-    var datas = response.data;
-    var blogdatas = datas["page_" + PageNo];
-    viewBlog(blogdatas);
-    var TotalPage = datas["total_pages"];
-    Pagination(TotalPage, PageNo);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+export const greeting = () => {
+  console.log("Hello, I have some recipe you wanna know about them?");
+};
+export default BlogData;
