@@ -15,7 +15,7 @@ axios.get("./blog.json")
     var datas = response.data;
     var blogdatas = datas["page_" + PageNo];
     viewBlog(blogdatas);
-    var TotalPage = datas["total_pages"];
+    var TotalPage = Object.keys(datas).length;
     Pagination(TotalPage, PageNo);
   })
   .catch((err) => {
